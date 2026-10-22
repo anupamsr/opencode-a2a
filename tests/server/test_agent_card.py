@@ -115,6 +115,7 @@ def test_public_agent_card_is_slimmed_but_keeps_core_shared_contract_hints() -> 
         ],
         "session_fields": {
             "id": "metadata.shared.session.id",
+            "title": "metadata.shared.session.title",
         },
         "provider_private_metadata": [
             "opencode.directory",
@@ -242,6 +243,7 @@ def test_agent_card_injects_profile_into_extensions() -> None:
     ]
     assert binding.params["session_fields"] == {
         "id": "metadata.shared.session.id",
+        "title": "metadata.shared.session.title",
     }
     assert profile["profile_id"] == "opencode-a2a-single-tenant-coding-v1"
     assert profile["deployment"] == {

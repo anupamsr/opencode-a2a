@@ -693,7 +693,7 @@ Detailed contract discovery for this provider-private surface is intentionally a
   - `opencode.sessions.messages.list` also returns `result.next_cursor` when older messages are available
   - `contextId` is an A2A context key derived by the adapter (format: `ctx:opencode-session:<session_id>`, not raw OpenCode session ID)
   - OpenCode session identity is exposed explicitly at `metadata.shared.session.id`
-  - session titles remain provider-private summary fields such as `result.item.title` / `result.items[].title`; they are not duplicated under `metadata.shared.session`
+  - session titles from OpenCode are exposed on `opencode.sessions.list` / `.get` / `.children` at `metadata.shared.session.title` when the session has a non-empty title
 - Session list filters:
   - optional `directory`, `roots`, `start`, `search`, `limit`
   - optional `metadata.opencode.workspace.id`

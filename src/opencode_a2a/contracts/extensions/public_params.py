@@ -117,7 +117,7 @@ def build_public_session_binding_extension_params(
         "supported_metadata": params["supported_metadata"],
         "session_fields": select_public_extension_params(
             params["session_fields"],
-            keys=("id",),
+            keys=("id", "title"),
         ),
         "provider_private_metadata": params["provider_private_metadata"],
     }
@@ -138,6 +138,7 @@ def build_session_binding_extension_params(
         ],
         "session_fields": {
             "id": f"{identifiers.SHARED_SESSION_METADATA_FIELD}.id",
+            "title": f"{identifiers.SHARED_SESSION_METADATA_FIELD}.title",
         },
         "provider_private_metadata": ["opencode.directory", "opencode.workspace.id"],
         "profile": runtime_profile.summary_dict(),

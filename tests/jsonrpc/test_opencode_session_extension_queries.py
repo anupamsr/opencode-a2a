@@ -99,7 +99,7 @@ async def test_session_query_extension_returns_jsonrpc_result(monkeypatch):
         assert session["contextId"] == "ctx:opencode-session:s-1"
         assert session["contextId"] != _session_meta(session)["id"]
         assert _session_meta(session)["id"] == "s-1"
-        assert _session_meta(session) == {"id": "s-1"}
+        assert _session_meta(session) == {"id": "s-1", "title": "Session s-1"}
         assert "raw" not in session["metadata"]["shared"]
         assert dummy.last_sessions_params is not None
         assert dummy.last_sessions_params.get("limit") == 10
@@ -799,7 +799,7 @@ async def test_session_query_extension_session_title_is_extracted_or_placeholder
         payload = resp.json()
         session = payload["result"]["items"][0]
         assert session["id"] == "s-1"
-        assert _session_meta(session) == {"id": "s-1"}
+        assert _session_meta(session) == {"id": "s-1", "title": "My Session"}
 
 
 @pytest.mark.asyncio
